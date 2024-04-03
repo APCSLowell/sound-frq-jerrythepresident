@@ -21,7 +21,7 @@ for(int i=0; i<samples.length; i++){
         samples[i]=limit;
         count++;
       }
-      else if(samples[i]<limit*-1){
+      if(samples[i]<limit*-1){
         samples[i]=limit*-1;
         count++;
       }
@@ -45,8 +45,8 @@ for(int i=0; i<samples.length; i++){
       count++;
     }
     int [] nums=new int [samples.length-count];
-    for(int j=count; j<samples.length; j++){
-      nums[j-count]=samples[j];
+    for(int j=0; j<nums.length; j++){
+      nums[j]=samples[j+count];
     }
       samples=nums;
   }
