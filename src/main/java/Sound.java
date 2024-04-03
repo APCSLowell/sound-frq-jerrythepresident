@@ -16,13 +16,13 @@ public class Sound
   public int limitAmplitude(int limit)
   {  
     int count=0;
-for(int i=0; i<this.samples.length; i++){
+  for(int i=0; i<this.samples.length; i++){
       if(this.samples[i]>limit){
         this.samples[i]=limit;
         count++;
       }
-      if(this.samples[i]<limit*-1){
-        this.samples[i]=limit*-1;
+      if(this.samples[i]<-limit){
+        this.samples[i]=-limit;
         count++;
       }
     }
@@ -39,15 +39,13 @@ for(int i=0; i<this.samples.length; i++){
   public void trimSilenceFromBeginning()
   {
     int i=0;
-    int count=0;
     while(this.samples[i]==0){
       i++;
-      count++;
     }
-    int [] nums=new int [this.samples.length-count];
-    for(int j=0; j<nums.length; j++){
-      nums[j]=this.samples[j+count];
+    int [] newsample = new int [this.samples.length-i];
+    for(int j=0; j<newsample.length; j++){
+      newsample[j]=this.samples[j+i];
     }
-      this.samples=nums;
+      this.samples=newsample;
   }
 }
