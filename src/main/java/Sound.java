@@ -46,8 +46,8 @@ for(int i=0; i<samples.length; i++){
     }
     int [] nums=new int [samples.length-count];
     for(int j=count; j<samples.length; j++){
-      num[j-count]=samples[j];
+      nums[j-count]=samples[j];
     }
-      samples=num;
+      samples=nums;
   }
 }
