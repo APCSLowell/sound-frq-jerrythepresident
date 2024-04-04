@@ -2,7 +2,7 @@ import java.util.*;
 public class Sound
 {
   /** the array of values in this sound; guaranteed not to be null */
-  int[] samples;
+  int[] samples; 
 
 
 
