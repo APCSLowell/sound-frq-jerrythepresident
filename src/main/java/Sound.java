@@ -13,21 +13,20 @@ public class Sound
    *         Precondition: limit >= 0
    *  @return the number of values in this sound that this method changed
    */
-  public int limitAmplitude(int limit)
-  {  
-    int count=0;
-  for(int i=0; i<samples.length; i++){
-      if(samples[i]>limit){
-        samples[i]=limit;
-        count++;
-      }
-      if(samples[i]<-limit){
-        samples[i]=-limit;
-        count++;
-      }
-    }
-    return count;
-  }
+  public int limitAmplitude(int limit) {
+ int numChanged = 0;
+ for (int i = 0; i < this.samples.length; i++) {
+ if (this.samples[i] < -limit) {
+ this.samples[i] = -limit;
+ numChanged++;
+ }
+ if (this.samples[i] > limit) {
+ this.samples[i] = limit;
+ numChanged++;
+ }
+ }
+ return numChanged;
+} 
 
 
 
@@ -36,16 +35,16 @@ public class Sound
    *  Precondition: samples contains at least one nonzero value
    *  Postcondition: the length of samples reflects the removal of starting silence
    */
-  public void trimSilenceFromBeginning()
-  {
-    int i=0;
-    while(samples[i]==0){
-      i++;
-    }
-    int [] newsample = new int [samples.length-i];
-    for(int j=0; j<newsample.length; j++){
-      newsample[j]=samples[j+i];
-    }
-      samples=newsample;
-  }
+public void trimSilenceFromBeginning() {
+ int i = 0;
+ while (this.samples[i] == 0) {
+ i++;
+ }
+ int[] newSamples = new int[this.samples.length - i];
+ for (int j = 0; j < newSamples.length; j++) {
+ newSamples[j] = this.samples[j+i];
+ }
+ this.samples = newSamples;
+} 
+  
 }
